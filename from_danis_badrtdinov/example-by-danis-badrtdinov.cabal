@@ -1,0 +1,27 @@
+cabal-version:   3.0
+name:            example-by-danis-badrtdinov
+version:         0.1.0.0
+license:         BSD-3-Clause
+license-file:    LICENSE
+author:          twesterhout
+maintainer:      14264576+twesterhout@users.noreply.github.com
+category:        Language
+build-type:      Simple
+extra-doc-files: README.md
+
+common warnings
+  ghc-options: -Wall
+
+executable example-by-danis-badrtdinov
+  import:           warnings
+  main-is:          Main.hs
+  build-depends:
+    , base            >=4.16.0.0 && <5
+    , halide-haskell  >=0.0.2.0  && <0.1
+    , text
+    , timestats
+    , vector
+
+  hs-source-dirs:   app
+  default-language: GHC2021
+  ghc-options:      -threaded -rtsopts -with-rtsopts=-N

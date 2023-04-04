@@ -47,10 +47,10 @@
             overrides = self: super: {
               halide-haskell = inputs.halide-haskell.outputs.packages.${system}.${ghcAttr}.halide-haskell;
               hdf5-hs = inputs.hdf5-hs.outputs.packages.${system}.${ghcAttr}.hdf5-hs;
-              # example-by-danis-badrtdinov =
-              #   (self.callCabal2nix "example-by-danis-badrtdinov" ./from_danis_badrtdinov { });
               example-by-hugo-strand =
                 (self.callCabal2nix "example-by-hugo-strand" ./from_hugo_strand { });
+              example-by-danis-badrtdinov =
+                (self.callCabal2nix "example-by-danis-badrtdinov" ./from_danis_badrtdinov { });
             };
           };
       haskellPackages = haskellPackagesOverride pkgs.haskellPackages { };
@@ -64,6 +64,7 @@
           haskellPackages.shellFor {
             packages = ps: with ps; [
               example-by-hugo-strand
+              example-by-danis-badrtdinov
             ];
             withHoogle = true;
             nativeBuildInputs = with pkgs; with haskellPackages; [
